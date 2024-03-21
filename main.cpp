@@ -47,7 +47,20 @@ int main(){
     //I create a Gradientmethod object in order to solve the problem
     Gradientmethod gm(dim, function, dfunction, max_iter, tol_res, tol_x, initial_guess);
 
-    Point result(gm.solve().get_coords());
+    int flag;
+    Point result(initial_guess.get_coords());
+    std::cout << "Do you want to calculate the gradient analitical or numerical? (0 for analitical, 1 for numerical)"<<std::endl;
+    std::cin >> flag;
+    if(flag==0){
+        for(std::size_t i=0; i<dim; ++i){
+            result.set_coord(i,gm.solve().get_coord(i));
+        }
+    }
+    if(flag==1){
+        for(std::size_t i=0; i<dim; ++i){
+            result.set_coord(i,gm.solve_numerical().get_coord(i));
+        }   
+    }
 
     std::cout<<"The point that minimize our function is :"<<std::endl;
     result.print();

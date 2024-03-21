@@ -19,14 +19,14 @@ enum class Choice {
 
 private:
     //that are the methods to calculate the parameter alpha
-    double Arm_rule(Point m_x);
+    double Arm_rule(Point m_x, Point grad);
 
     double Exp_Decay(Point m_x);
 
     double Inv_Decay(Point m_x);
 
     template<Choice choice>
-        double calculateAlpha(Point x);
+        double calculateAlpha(Point x, Point grad);
 
     //in this fields we have the variables of the gradient method
     MuparserFun m_fun;
@@ -57,6 +57,8 @@ public:
 
     //methods
     Point solve(); //this method gives to us the solution of the minimization problem
+
+    Point solve_numerical();
 
     double get_residuals() const {
         return m_res;
