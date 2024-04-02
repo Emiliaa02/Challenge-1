@@ -1,0 +1,17 @@
+The README should be more explicative to the user about how to use your code, not focused on the technical details of the implementation.
+It should explain:
+    - which lines to edit in the Makefile and how (which paths to insert)
+    - how to edit the code in order to choose among the different methods
+    - how to pass the data using the json file.
+
+Code organization:
+    I would have expected an include folder with the header files of the classes
+
+Quality of the code:
+    It was a good idea to implement classes containing the parameters and the solve methods.
+    The code is clear and well commented.
+
+    Why do you initialize result as a copy of the initial guess if you don't use it?
+    You could also avoid the for loops for setting the coordinates and use copy assignment.
+
+
